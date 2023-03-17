@@ -1,15 +1,59 @@
 import type { GatsbyConfig } from "gatsby";
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+const { createHttpLink } = require(`@apollo/client`);
 
 const config: GatsbyConfig = {
-  siteMetadata: {
-    title: `starter-template-gatsby-simple-blog`,
-    siteUrl: `https://www.yourdomain.tld`
-  },
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
-  plugins: ["gatsby-plugin-sitemap"]
+  plugins: [
+    "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "CAISY",
+        fieldName: "caisy",
+        //
+        createLink: () => {
+          return createHttpLink({
+            uri: `https://cloud.caisy.io/api/v3/e/${process.env.CAISY_PROJECT_ID}/graphql`,
+            headers: {
+              "x-caisy-apikey": `${process.env.CAISY_API_KEY}`,
+            },
+            fetch,
+          });
+        },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-graphql-codegen`,
+      options: {
+        fileName: `./sdk.ts`,
+        documentPaths: [
+          "src/services/graphql/**/*.graphql",
+          "src/services/graphql/fragments/**/*.ts",
+          "src/services/graphql/queries/**/*.ts",
+        ],
+        codegenPlugins: [
+          {
+            resolve: "typescript",
+          },
+          {
+            resolve: "operations",
+          },
+        ],
+        codegenConfig: {
+          rawRequest: false,
+          inlineFragmentTypes: "combine",
+          skipTypename: false,
+          exportFragmentSpreadSubTypes: true,
+          dedupeFragments: true,
+          preResolveTypes: true,
+          typesPrefix: "IGen",
+        },
+      },
+    },
+  ],
 };
 
 export default config;
