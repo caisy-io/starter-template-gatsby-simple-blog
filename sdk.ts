@@ -2977,3 +2977,58 @@ export type IGenGraphQlSourceSortInput = {
 export type IGenAssetFragment = { title?: string | null, src?: string | null, originType?: string | null, keywords?: string | null, id?: string | null, dominantColor?: string | null, description?: string | null, copyright?: string | null, author?: string | null };
 
 export type IGenAuthorFragment = { name?: string | null, role?: string | null, id?: string | null, avatar?: IGenAssetFragment | null };
+
+export type IGenBlogArticleFragment = { teaserHeadline?: string | null, teaserDesciption?: string | null, slug?: string | null, id?: string | null, text?: { json?: any | null, connections?: Array<(
+      { __typename: 'CAISY_Asset' }
+      & IGenAssetFragment
+    ) | null> | null } | null, teaserImage?: IGenAssetFragment | null, seo?: { id?: string | null, description?: string | null, keywords?: string | null, title?: string | null, ogImage?: IGenAssetFragment | null } | null };
+
+export type IGenBlogArticleGridFragment = { id?: string | null, headline?: string | null, subheadline?: string | null, articles?: Array<{ id?: string | null, slug?: string | null, teaserDesciption?: string | null, teaserHeadline?: string | null, teaserImage?: IGenAssetFragment | null, text?: { json?: any | null, connections?: Array<(
+        { __typename: 'CAISY_Asset' }
+        & IGenAssetFragment
+      ) | null> | null } | null } | null> | null };
+
+export type IGenCategoryFragment = { name?: string | null, id?: string | null };
+
+export type IGenContactFormFragment = { id?: string | null, headline?: string | null };
+
+export type IGenFulltextFragment = { id?: string | null, text?: { json?: any | null, connections?: Array<(
+      { __typename: 'CAISY_Asset' }
+      & IGenAssetFragment
+    ) | null> | null } | null };
+
+export type IGenFullwidthBlogTeaserFragment = { id?: string | null, featuredArticle?: { id?: string | null, slug?: string | null, teaserHeadline?: string | null, teaserDesciption?: string | null, teaserImage?: IGenAssetFragment | null, text?: { json?: any | null, connections?: Array<(
+        { __typename: 'CAISY_Asset' }
+        & IGenAssetFragment
+      ) | null> | null } | null, author?: IGenAuthorFragment | null, category?: IGenCategoryFragment | null } | null };
+
+export type IGenHeadlineFragment = { subheadline?: string | null, id?: string | null, headline?: string | null };
+
+export type IGenNavigationEntryFragment = { id?: string | null, title?: string | null, connection?: { id?: string | null, slug?: string | null } | null };
+
+export type IGenNewsletterSignupFragment = { headline?: string | null, subheadline?: string | null, id?: string | null };
+
+export type IGenPageFragment = { id?: string | null, slug?: string | null, components?: Array<(
+    { __typename: 'CAISY_Fulltext' }
+    & IGenFulltextFragment
+  ) | (
+    { __typename: 'CAISY_ContactForm' }
+    & IGenContactFormFragment
+  ) | (
+    { __typename: 'CAISY_BlogArticleGrid' }
+    & IGenBlogArticleGridFragment
+  ) | (
+    { __typename: 'CAISY_FullwidthBlogTeaser' }
+    & IGenFullwidthBlogTeaserFragment
+  ) | (
+    { __typename: 'CAISY_NewsletterSignup' }
+    & IGenNewsletterSignupFragment
+  ) | (
+    { __typename: 'CAISY_Headline' }
+    & IGenHeadlineFragment
+  ) | null> | null, seo?: { title?: string | null, keywords?: string | null, id?: string | null, description?: string | null, ogImage?: { id?: string | null } | null } | null };
+
+export type IGenNavigationQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type IGenNavigationQuery = { caisy: { Navigation?: { id?: string | null, homePage?: { id?: string | null, slug?: string | null } | null, notFoundPage?: { id?: string | null, slug?: string | null } | null, entries?: Array<IGenNavigationEntryFragment | null> | null } | null } };

@@ -30,7 +30,6 @@ const config: GatsbyConfig = {
       options: {
         fileName: `./sdk.ts`,
         documentPaths: [
-          "src/services/graphql/**/*.graphql",
           "src/services/graphql/fragments/**/*.ts",
           "src/services/graphql/queries/**/*.ts",
         ],

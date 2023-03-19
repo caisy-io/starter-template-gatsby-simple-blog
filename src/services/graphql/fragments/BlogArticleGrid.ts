@@ -6,7 +6,7 @@ export const f_BlogArticleGrid = graphql`
     headline
     subheadline
     articles {
-      ... on BlogArticle {
+      ... on CAISY_BlogArticle {
         id
         slug
         teaserDesciption

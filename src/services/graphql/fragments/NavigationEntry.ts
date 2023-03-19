@@ -1,7 +1,7 @@
-import { gql } from "graphql-request";
+import { graphql } from "gatsby";
 
-export const f_NavigationEntry = gql`
-  fragment NavigationEntry on NavigationEntry {
+export const f_NavigationEntry = graphql`
+  fragment NavigationEntry on CAISY_NavigationEntry {
     id
     title
     connection {

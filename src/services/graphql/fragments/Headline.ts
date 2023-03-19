@@ -1,7 +1,7 @@
-import { gql } from "graphql-request";
+import { graphql } from "gatsby";
 
-export const f_Headline = gql`
-  fragment Headline on Headline {
+export const f_Headline = graphql`
+  fragment Headline on CAISY_Headline {
     subheadline
     id
     headline

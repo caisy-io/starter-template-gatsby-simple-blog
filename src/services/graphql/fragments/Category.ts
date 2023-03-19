@@ -1,7 +1,7 @@
-import { gql } from "graphql-request";
+import { graphql } from "gatsby";
 
-export const f_Category = gql`
-  fragment Category on Category {
+export const f_Category = graphql`
+  fragment Category on CAISY_Category {
     name
     id
   }

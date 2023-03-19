@@ -1,7 +1,7 @@
-import { gql } from "graphql-request";
+import { graphql } from "gatsby";
 
-export const f_Fulltext = gql`
-  fragment Fulltext on Fulltext {
+export const f_Fulltext = graphql`
+  fragment Fulltext on CAISY_Fulltext {
     text {
       json
       connections {

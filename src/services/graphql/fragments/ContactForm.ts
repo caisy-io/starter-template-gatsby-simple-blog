@@ -1,7 +1,7 @@
-import { gql } from "graphql-request";
+import { graphql } from "gatsby";
 
-export const f_ContactForm = gql`
-  fragment ContactForm on ContactForm {
+export const f_ContactForm = graphql`
+  fragment ContactForm on CAISY_ContactForm {
     id
     headline
   }

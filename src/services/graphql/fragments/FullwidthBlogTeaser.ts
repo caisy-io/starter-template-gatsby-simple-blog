@@ -1,7 +1,7 @@
-import { gql } from "graphql-request";
+import { graphql } from "gatsby";
 
-export const f_FullwidthBlogTeaser = gql`
-  fragment FullwidthBlogTeaser on FullwidthBlogTeaser {
+export const f_FullwidthBlogTeaser = graphql`
+  fragment FullwidthBlogTeaser on CAISY_FullwidthBlogTeaser {
     id
     featuredArticle {
       id
@@ -12,16 +12,16 @@ export const f_FullwidthBlogTeaser = gql`
       text {
         connections {
           __typename
-          ... on Asset {
+          ... on CAISY_Asset {
             ...Asset
           }
         }
         json
       }
-      author{
+      author {
         ...Author
       }
-      category{
+      category {
         ...Category
       }
       teaserHeadline

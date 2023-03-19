@@ -1,21 +1,12 @@
 import * as React from "react";
-import { graphql, HeadFC, PageProps } from "gatsby";
+import { HeadFC, PageProps } from "gatsby";
+import { q_Navigation } from "../services/graphql/queries/Navigation";
 
 const IndexPage: React.FC<PageProps> = ({ data }) => {
-  console.log({ data });
+  const nav = q_Navigation();
+  console.log({ data, nav });
   return <h1>HELLO</h1>;
 };
-
-export const query = graphql`
-  query test {
-    Footer {
-      id
-      content {
-        json
-      }
-    }
-  }
-`;
 
 export default IndexPage;
 
