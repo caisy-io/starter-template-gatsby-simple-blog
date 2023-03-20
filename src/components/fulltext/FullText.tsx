@@ -2,8 +2,9 @@ import React from "react";
 import { RichTextRenderer } from "@caisy/rich-text-react-renderer";
 import { CenterContainer } from "../CenterContainer";
 import { DocumentLink } from "./overwrites/DocumentLink";
+import { IGenCaisy_Fulltext } from "../../../sdk";
 
-interface IFullText {
+interface IFullText extends IGenCaisy_Fulltext {
   text?: any;
 }
 

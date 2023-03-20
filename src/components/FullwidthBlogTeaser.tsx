@@ -1,8 +1,8 @@
 import React from "react";
-import { IGenFullwidthBlogTeaserFragment } from "../..//sdk";
+import { IGenCaisy_FullwidthBlogTeaser } from "../../sdk";
 import { FullContainer } from "./FullContainer";
 
-export const FullwidthBlogTeaser: React.FC<IGenFullwidthBlogTeaserFragment> = ({
+export const FullwidthBlogTeaser: React.FC<IGenCaisy_FullwidthBlogTeaser> = ({
   featuredArticle,
 }) => {
   const { author, teaserImage } = featuredArticle ?? {};

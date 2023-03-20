@@ -1,15 +1,15 @@
 import React from "react";
-import { IGenPage } from "../services/graphql/__generated/sdk";
+import { IGenCaisy_Page } from "../../sdk";
 import { ComponentSelector } from "./ComponentSelector";
 
-export const Page: React.FC<IGenPage> = (props) => {
+export const Page: React.FC<IGenCaisy_Page> = (props) => {
   return (
     <>
       {props?.components?.map(
         (component) =>
           component && (
             <React.Fragment key={component.id}>
-              <ComponentSelector component={component} />
+              <ComponentSelector {...component} />
             </React.Fragment>
           )
       )}

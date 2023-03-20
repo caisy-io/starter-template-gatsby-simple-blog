@@ -1,10 +1,8 @@
 import React from "react";
-import { IGenContactFormFragment } from "../..//sdk";
+import { IGenCaisy_ContactForm } from "../../sdk";
 import { CenterContainer } from "./CenterContainer";
 
-export const ContactForm: React.FC<IGenContactFormFragment> = ({
-  headline,
-}) => {
+export const ContactForm: React.FC<IGenCaisy_ContactForm> = ({ headline }) => {
   return (
     <CenterContainer>
       <form action="#">

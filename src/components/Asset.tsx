@@ -1,7 +1,7 @@
 import React from "react";
-import { IGenAssetFragment } from "../../sdk";
+import { IGenCaisy_Asset } from "../../sdk";
 
-interface IAsset extends IGenAssetFragment {
+interface IAsset extends IGenCaisy_Asset {
   children?: React.ReactNode;
 }
 

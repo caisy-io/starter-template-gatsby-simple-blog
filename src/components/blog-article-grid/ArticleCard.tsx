@@ -1,7 +1,7 @@
 import React from "react";
-import { IGenBlogArticleFragment } from "../../../sdk";
+import { IGenCaisy_BlogArticle } from "../../../sdk";
 
-export const ArticleCard: React.FC<IGenBlogArticleFragment> = ({
+export const ArticleCard: React.FC<IGenCaisy_BlogArticle> = ({
   teaserImage,
   teaserHeadline,
   teaserDesciption,

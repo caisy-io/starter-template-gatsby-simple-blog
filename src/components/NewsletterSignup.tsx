@@ -1,8 +1,8 @@
 import React from "react";
-import { IGenNewsletterSignupFragment } from "../../sdk";
+import { IGenCaisy_NewsletterSignup } from "../../sdk";
 import { CenterContainer } from "./CenterContainer";
 
-export const NewsletterSignup: React.FC<IGenNewsletterSignupFragment> = ({
+export const NewsletterSignup: React.FC<IGenCaisy_NewsletterSignup> = ({
   headline,
   subheadline,
 }) => {

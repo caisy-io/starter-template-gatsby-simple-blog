@@ -1,8 +1,8 @@
 import React from "react";
-import { IGenHeadlineFragment } from "../../sdk";
+import { IGenCaisy_Headline } from "../../sdk";
 import { CenterContainer } from "./CenterContainer";
 
-export const Headline: React.FC<IGenHeadlineFragment> = ({
+export const Headline: React.FC<IGenCaisy_Headline> = ({
   headline,
   subheadline,
 }) => {
