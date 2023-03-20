@@ -1,11 +1,13 @@
 import * as React from "react";
 import { HeadFC, PageProps } from "gatsby";
-import { q_Navigation } from "../services/graphql/queries/Navigation";
+import { useNavigation } from "../services/graphql/queries/useNavigation";
+import { useFooter } from "../services/graphql/queries/useFooter";
 
 const IndexPage: React.FC<PageProps> = ({ data }) => {
-  const nav = q_Navigation();
-  console.log({ data, nav });
-  return <h1>HELLO</h1>;
+  const nav = useNavigation();
+  const footer = useFooter();
+  console.log({ data, nav, footer });
+  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
 };
 
 export default IndexPage;

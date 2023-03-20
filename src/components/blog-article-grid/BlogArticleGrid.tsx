@@ -1,9 +1,9 @@
 import React from "react";
-import { IGenBlogArticleGrid } from "../../services/graphql/__generated/sdk";
+import { IGenBlogArticleGridFragment } from "../../../sdk";
 import { FullContainer } from "../FullContainer";
 import { ArticleCard } from "./ArticleCard";
 
-export const BlogArticleGrid: React.FC<IGenBlogArticleGrid> = ({
+export const BlogArticleGrid: React.FC<IGenBlogArticleGridFragment> = ({
   headline,
   articles,
   subheadline,

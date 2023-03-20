@@ -1,8 +1,8 @@
 import React from "react";
-import { IGenFullwidthBlogTeaser } from "../services/graphql/__generated/sdk";
+import { IGenFullwidthBlogTeaserFragment } from "../..//sdk";
 import { FullContainer } from "./FullContainer";
 
-export const FullwidthBlogTeaser: React.FC<IGenFullwidthBlogTeaser> = ({
+export const FullwidthBlogTeaser: React.FC<IGenFullwidthBlogTeaserFragment> = ({
   featuredArticle,
 }) => {
   const { author, teaserImage } = featuredArticle ?? {};

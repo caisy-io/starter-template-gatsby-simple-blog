@@ -2974,7 +2974,7 @@ export type IGenGraphQlSourceSortInput = {
   fieldName?: InputMaybe<IGenSortOrderEnum>;
 };
 
-export type IGenAssetFragment = { title?: string | null, src?: string | null, originType?: string | null, keywords?: string | null, id?: string | null, dominantColor?: string | null, description?: string | null, copyright?: string | null, author?: string | null };
+export type IGenAssetFragment = { __typename: 'CAISY_Asset', title?: string | null, src?: string | null, originType?: string | null, keywords?: string | null, id?: string | null, dominantColor?: string | null, description?: string | null, copyright?: string | null, author?: string | null };
 
 export type IGenAuthorFragment = { name?: string | null, role?: string | null, id?: string | null, avatar?: IGenAssetFragment | null };
 
@@ -3027,6 +3027,39 @@ export type IGenPageFragment = { id?: string | null, slug?: string | null, compo
     { __typename: 'CAISY_Headline' }
     & IGenHeadlineFragment
   ) | null> | null, seo?: { title?: string | null, keywords?: string | null, id?: string | null, description?: string | null, ogImage?: { id?: string | null } | null } | null };
+
+export type IGenAllBlogArticleBySlugQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+export type IGenAllBlogArticleBySlugQuery = { caisy: { allBlogArticle?: { edges?: Array<{ node?: IGenBlogArticleFragment | null } | null> | null } | null } };
+
+export type IGenAllBlogArticleMetaQueryVariables = Exact<{
+  after?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type IGenAllBlogArticleMetaQuery = { caisy: { allBlogArticle?: { totalCount?: number | null, pageInfo?: { hasNextPage?: boolean | null, endCursor?: string | null } | null, edges?: Array<{ node?: { id?: string | null, slug?: string | null, _meta?: { publishedAt?: any | null } | null } | null } | null> | null } | null } };
+
+export type IGenAllPageBySlugQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+export type IGenAllPageBySlugQuery = { caisy: { allPage?: { edges?: Array<{ node?: IGenPageFragment | null } | null> | null } | null } };
+
+export type IGenAllPageMetaQueryVariables = Exact<{
+  after?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type IGenAllPageMetaQuery = { caisy: { allPage?: { totalCount?: number | null, pageInfo?: { hasNextPage?: boolean | null, endCursor?: string | null } | null, edges?: Array<{ node?: { id?: string | null, slug?: string | null, _meta?: { publishedAt?: any | null } | null } | null } | null> | null } | null } };
+
+export type IGenFooterQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type IGenFooterQuery = { caisy: { Footer?: { id?: string | null, content?: { json?: any | null } | null } | null } };
 
 export type IGenNavigationQueryVariables = Exact<{ [key: string]: never; }>;
 

@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby";
 
-export const q_Navigation = () => {
+export const useNavigation = () => {
   const { caisy } = useStaticQuery(graphql`
     query Navigation {
       caisy {

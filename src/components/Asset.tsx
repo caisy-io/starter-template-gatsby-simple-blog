@@ -1,7 +1,7 @@
 import React from "react";
-import { IGenAsset } from "../services/graphql/__generated/sdk";
+import { IGenAssetFragment } from "../../sdk";
 
-interface IAsset extends IGenAsset {
+interface IAsset extends IGenAssetFragment {
   children?: React.ReactNode;
 }
 

@@ -1,6 +1,5 @@
+import React from "react";
 import { RichTextRenderer } from "@caisy/rich-text-react-renderer";
-import { FC } from "react";
-import { Asset } from "../Asset";
 import { CenterContainer } from "../CenterContainer";
 import { DocumentLink } from "./overwrites/DocumentLink";
 

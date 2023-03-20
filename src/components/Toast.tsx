@@ -1,5 +1,5 @@
-import Link from "next/link";
-
+import React from "react";
+import { Link } from "gatsby";
 export const Toast = () => {
   return (
     <div
@@ -11,7 +11,7 @@ export const Toast = () => {
           Great Job! You have successfully run the caisy template. Click
           on&nbsp;
           <Link
-            href="/api/onboarding"
+            to="/api/onboarding"
             className="font-semibold underline text-green-400"
           >
             this link

@@ -1,8 +1,10 @@
 import React from "react";
-import { IGenContactForm } from "../services/graphql/__generated/sdk";
+import { IGenContactFormFragment } from "../..//sdk";
 import { CenterContainer } from "./CenterContainer";
 
-export const ContactForm: React.FC<IGenContactForm> = ({ headline }) => {
+export const ContactForm: React.FC<IGenContactFormFragment> = ({
+  headline,
+}) => {
   return (
     <CenterContainer>
       <form action="#">

@@ -1,22 +1,24 @@
-import { gql } from "graphql-request";
+import { graphql } from "gatsby";
 
-export const q_allBlogArticleMeta = gql`
-query allBlogArticleMeta($after: String) {
-  allBlogArticle(after: $after) {
-    totalCount
-    pageInfo{
-      hasNextPage
-      endCursor
-    }
-    edges {
-      node {
-        _meta{
-          publishedAt
+export const q_allBlogArticleMeta = graphql`
+  query allBlogArticleMeta($after: String) {
+    caisy {
+      allBlogArticle(after: $after) {
+        totalCount
+        pageInfo {
+          hasNextPage
+          endCursor
         }
-        id
-        slug
+        edges {
+          node {
+            _meta {
+              publishedAt
+            }
+            id
+            slug
+          }
+        }
       }
     }
   }
-}
 `;
