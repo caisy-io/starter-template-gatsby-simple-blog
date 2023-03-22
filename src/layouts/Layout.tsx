@@ -14,9 +14,9 @@ export const Layout: React.FC<ILayout> = ({ footer, navigation, children }) => {
   return (
     <>
       {process.env.PUBLIC_SHOW_ONBOARDING_TOAST != "false" && <Toast />}
-      <Navigation {...navigation} />
+      {navigation && <Navigation {...navigation} />}
       <main>{children}</main>
-      <Footer {...footer} />
+      {footer && <Footer {...footer} />}
     </>
   );
 };

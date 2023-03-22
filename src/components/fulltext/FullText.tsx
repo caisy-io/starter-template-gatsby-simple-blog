@@ -9,7 +9,6 @@ interface IFullText extends IGenCaisy_Fulltext {
 }
 
 export const FullText: React.FC<IFullText> = ({ text }) => {
-  console.log(` text?.connections`, text);
   return (
     <CenterContainer>
       <article className="prose lg:prose-xl">

@@ -22,14 +22,16 @@ export const ComponentSelector: React.FC<IComponentSelector> = ({
 }) => {
   return (
     <>
-      {__typename == "Headline" && <Headline {...props} />}
-      {__typename == "Fulltext" && <FullText {...props} />}
-      {__typename == "BlogArticleGrid" && <BlogArticleGrid {...props} />}
-      {__typename == "NewsletterSignup" && <NewsletterSignup {...props} />}
-      {__typename == "FullwidthBlogTeaser" && (
+      {__typename == "CAISY_Headline" && <Headline {...props} />}
+      {__typename == "CAISY_Fulltext" && <FullText {...props} />}
+      {__typename == "CAISY_BlogArticleGrid" && <BlogArticleGrid {...props} />}
+      {__typename == "CAISY_NewsletterSignup" && (
+        <NewsletterSignup {...props} />
+      )}
+      {__typename == "CAISY_FullwidthBlogTeaser" && (
         <FullwidthBlogTeaser {...props} />
       )}
-      {__typename == "ContactForm" && <ContactForm {...props} />}
+      {__typename == "CAISY_ContactForm" && <ContactForm {...props} />}
     </>
   );
 };

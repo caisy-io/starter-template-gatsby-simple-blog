@@ -2,27 +2,27 @@ import type { GatsbyConfig } from "gatsby";
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
-const { createHttpLink } = require(`@apollo/client`);
 
 const config: GatsbyConfig = {
   graphqlTypegen: true,
+  trailingSlash: "ignore",
   plugins: [
     "gatsby-plugin-sitemap",
     "gatsby-plugin-postcss",
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        icon: "src/images/icon.png", // This path is relative to the root of the site.
+      },
+    },
     {
       resolve: "gatsby-source-graphql",
       options: {
         typeName: "CAISY",
         fieldName: "caisy",
-        //
-        createLink: () => {
-          return createHttpLink({
-            uri: `https://cloud.caisy.io/api/v3/e/${process.env.CAISY_PROJECT_ID}/graphql`,
-            headers: {
-              "x-caisy-apikey": `${process.env.CAISY_API_KEY}`,
-            },
-            fetch,
-          });
+        url: `https://cloud.caisy.io/api/v3/e/${process.env.CAISY_PROJECT_ID}/graphql`,
+        headers: {
+          "x-caisy-apikey": `${process.env.CAISY_API_KEY}`,
         },
       },
     },

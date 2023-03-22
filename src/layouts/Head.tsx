@@ -1,7 +1,7 @@
 import React from "react";
 import { IGenCaisy_SeoInformation } from "../../sdk";
 
-export const Head: React.FC<IGenCaisy_SeoInformation> = ({
+export const HeadComponent: React.FC<IGenCaisy_SeoInformation> = ({
   description,
   title,
   ogImage,
@@ -10,7 +10,6 @@ export const Head: React.FC<IGenCaisy_SeoInformation> = ({
     <>
       <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width" />
-      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       <meta property="og:locale" content="en_US" />
       <meta property="og:type" content="website" />
       <title>{title ?? ""}</title>

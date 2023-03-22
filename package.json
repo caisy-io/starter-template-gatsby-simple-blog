@@ -16,10 +16,11 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "gatsby": "^5.7.0",
     "@caisy/rich-text-react-renderer": "^0.4.1",
     "@fontsource/inter": "^4.5.15",
+    "gatsby": "^5.7.0",
     "gatsby-plugin-graphql-codegen": "^3.1.1",
+    "gatsby-plugin-manifest": "^5.8.0",
     "gatsby-plugin-sitemap": "^6.7.0",
     "gatsby-source-graphql": "^5.7.0",
     "react": "^18.2.0",

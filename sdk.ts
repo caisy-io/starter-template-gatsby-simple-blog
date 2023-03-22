@@ -240,13 +240,11 @@ export type IGenDirectoryCtimeArgs = {
 export type IGenSite = IGenNode & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<IGenSiteSiteMetadata>;
-  port?: Maybe<Scalars['Int']>;
-  host?: Maybe<Scalars['String']>;
   graphqlTypegen?: Maybe<IGenSiteGraphqlTypegen>;
+  trailingSlash?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   jsxRuntime?: Maybe<Scalars['String']>;
-  trailingSlash?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   parent?: Maybe<IGenNode>;
   children: Array<IGenNode>;
@@ -1531,13 +1529,11 @@ export type IGenQueryAllDirectoryArgs = {
 export type IGenQuerySiteArgs = {
   buildTime?: InputMaybe<IGenDateQueryOperatorInput>;
   siteMetadata?: InputMaybe<IGenSiteSiteMetadataFilterInput>;
-  port?: InputMaybe<IGenIntQueryOperatorInput>;
-  host?: InputMaybe<IGenStringQueryOperatorInput>;
   graphqlTypegen?: InputMaybe<IGenSiteGraphqlTypegenFilterInput>;
+  trailingSlash?: InputMaybe<IGenStringQueryOperatorInput>;
   polyfill?: InputMaybe<IGenBooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<IGenStringQueryOperatorInput>;
   jsxRuntime?: InputMaybe<IGenStringQueryOperatorInput>;
-  trailingSlash?: InputMaybe<IGenStringQueryOperatorInput>;
   id?: InputMaybe<IGenStringQueryOperatorInput>;
   parent?: InputMaybe<IGenNodeFilterInput>;
   children?: InputMaybe<IGenNodeFilterListInput>;
@@ -2244,13 +2240,11 @@ export type IGenSiteEdge = {
 export type IGenSiteFieldSelector = {
   buildTime?: InputMaybe<IGenFieldSelectorEnum>;
   siteMetadata?: InputMaybe<IGenSiteSiteMetadataFieldSelector>;
-  port?: InputMaybe<IGenFieldSelectorEnum>;
-  host?: InputMaybe<IGenFieldSelectorEnum>;
   graphqlTypegen?: InputMaybe<IGenSiteGraphqlTypegenFieldSelector>;
+  trailingSlash?: InputMaybe<IGenFieldSelectorEnum>;
   polyfill?: InputMaybe<IGenFieldSelectorEnum>;
   pathPrefix?: InputMaybe<IGenFieldSelectorEnum>;
   jsxRuntime?: InputMaybe<IGenFieldSelectorEnum>;
-  trailingSlash?: InputMaybe<IGenFieldSelectorEnum>;
   id?: InputMaybe<IGenFieldSelectorEnum>;
   parent?: InputMaybe<IGenNodeFieldSelector>;
   children?: InputMaybe<IGenNodeFieldSelector>;
@@ -2312,13 +2306,11 @@ export type IGenSiteGroupConnectionGroupArgs = {
 export type IGenSiteFilterInput = {
   buildTime?: InputMaybe<IGenDateQueryOperatorInput>;
   siteMetadata?: InputMaybe<IGenSiteSiteMetadataFilterInput>;
-  port?: InputMaybe<IGenIntQueryOperatorInput>;
-  host?: InputMaybe<IGenStringQueryOperatorInput>;
   graphqlTypegen?: InputMaybe<IGenSiteGraphqlTypegenFilterInput>;
+  trailingSlash?: InputMaybe<IGenStringQueryOperatorInput>;
   polyfill?: InputMaybe<IGenBooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<IGenStringQueryOperatorInput>;
   jsxRuntime?: InputMaybe<IGenStringQueryOperatorInput>;
-  trailingSlash?: InputMaybe<IGenStringQueryOperatorInput>;
   id?: InputMaybe<IGenStringQueryOperatorInput>;
   parent?: InputMaybe<IGenNodeFilterInput>;
   children?: InputMaybe<IGenNodeFilterListInput>;
@@ -2328,13 +2320,11 @@ export type IGenSiteFilterInput = {
 export type IGenSiteSortInput = {
   buildTime?: InputMaybe<IGenSortOrderEnum>;
   siteMetadata?: InputMaybe<IGenSiteSiteMetadataSortInput>;
-  port?: InputMaybe<IGenSortOrderEnum>;
-  host?: InputMaybe<IGenSortOrderEnum>;
   graphqlTypegen?: InputMaybe<IGenSiteGraphqlTypegenSortInput>;
+  trailingSlash?: InputMaybe<IGenSortOrderEnum>;
   polyfill?: InputMaybe<IGenSortOrderEnum>;
   pathPrefix?: InputMaybe<IGenSortOrderEnum>;
   jsxRuntime?: InputMaybe<IGenSortOrderEnum>;
-  trailingSlash?: InputMaybe<IGenSortOrderEnum>;
   id?: InputMaybe<IGenSortOrderEnum>;
   parent?: InputMaybe<IGenNodeSortInput>;
   children?: InputMaybe<IGenNodeSortInput>;

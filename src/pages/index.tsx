@@ -1,21 +1,46 @@
 import * as React from "react";
-import { HeadFC, PageProps } from "gatsby";
+import { graphql, HeadFC, navigate, PageProps } from "gatsby";
 import { useNavigation } from "../services/graphql/queries/useNavigation";
 import { useFooter } from "../services/graphql/queries/useFooter";
-import { Navigation } from "../layouts/Navigation";
 import { Layout } from "../layouts/Layout";
+import { Page } from "../layouts/Page";
+import { IGenAllPageBySlugQuery } from "../../sdk";
+import { HeadComponent } from "../layouts/Head";
 
-const IndexPage: React.FC<PageProps> = ({ data }) => {
-  const nav = useNavigation();
+const IndexPage = ({ data }: PageProps<IGenAllPageBySlugQuery>) => {
+  const navigation = useNavigation();
   const footer = useFooter();
-  console.log({ nav: nav, footer: footer });
+  const pageComponents = data?.caisy?.allPage?.edges?.[0]?.node;
+
+  if (!pageComponents) navigate("404");
+
   return (
-    <Layout navigation={nav} footer={footer}>
-      HI
-    </Layout>
+    navigation &&
+    footer && (
+      <Layout navigation={navigation} footer={footer}>
+        {pageComponents && <Page {...pageComponents} />}
+      </Layout>
+    )
   );
 };
 
+export const query = graphql`
+  query allPageBySlug($slug: String = "home") {
+    caisy {
+      allPage(where: { slug: { eq: $slug } }) {
+        edges {
+          node {
+            ...Page
+          }
+        }
+      }
+    }
+  }
+`;
+
 export default IndexPage;
 
-export { Head } from "../layouts/Head";
+export const Head: HeadFC<IGenAllPageBySlugQuery> = ({ data }) => {
+  const seoInfo = data?.caisy?.allPage?.edges?.[0]?.node?.seo;
+  return <HeadComponent {...seoInfo} />;
+};

@@ -1,49 +1,44 @@
-import * as React from "react"
-import { Link, HeadFC, PageProps } from "gatsby"
+import * as React from "react";
+import { graphql, HeadFC, navigate, PageProps } from "gatsby";
+import { useNavigation } from "../services/graphql/queries/useNavigation";
+import { useFooter } from "../services/graphql/queries/useFooter";
+import { Layout } from "../layouts/Layout";
+import { Page } from "../layouts/Page";
+import { IGenAllPageBySlugQuery } from "../../sdk";
+import { HeadComponent } from "../layouts/Head";
 
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
+const IndexPage = ({ data }: PageProps<IGenAllPageBySlugQuery>) => {
+  const navigation = useNavigation();
+  const footer = useFooter();
+  const pageComponents = data?.caisy?.allPage?.edges?.[0]?.node;
 
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-
-const NotFoundPage: React.FC<PageProps> = () => {
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry 😔, we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
-  )
-}
+    navigation &&
+    footer && (
+      <Layout navigation={navigation} footer={footer}>
+        {pageComponents && <Page {...pageComponents} />}
+      </Layout>
+    )
+  );
+};
 
-export default NotFoundPage
+export const query = graphql`
+  query allPageBySlug {
+    caisy {
+      allPage(where: { slug: { eq: "404" } }) {
+        edges {
+          node {
+            ...Page
+          }
+        }
+      }
+    }
+  }
+`;
 
-export const Head: HeadFC = () => <title>Not found</title>
+export default IndexPage;
+
+export const Head: HeadFC<IGenAllPageBySlugQuery> = ({ data }) => {
+  const seoInfo = data?.caisy?.allPage?.edges?.[0]?.node?.seo;
+  return <HeadComponent {...seoInfo} />;
+};

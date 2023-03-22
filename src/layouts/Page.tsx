@@ -2,10 +2,10 @@ import React from "react";
 import { IGenCaisy_Page } from "../../sdk";
 import { ComponentSelector } from "./ComponentSelector";
 
-export const Page: React.FC<IGenCaisy_Page> = (props) => {
+export const Page: React.FC<IGenCaisy_Page> = ({ components }) => {
   return (
     <>
-      {props?.components?.map(
+      {components?.map(
         (component) =>
           component && (
             <React.Fragment key={component.id}>
