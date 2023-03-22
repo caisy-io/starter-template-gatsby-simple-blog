@@ -1,14 +1,87 @@
-import type { GatsbyConfig } from "gatsby";
+import { GatsbyConfig, GatsbyFunctionRequest } from "gatsby";
+import { IGenAlleMetaQuery } from "./sdk";
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
 const config: GatsbyConfig = {
   graphqlTypegen: true,
-  trailingSlash: "ignore",
+  siteMetadata: {
+    title: `starter-template-gatsby-simple-blog`,
+  },
+  trailingSlash: "never",
   plugins: [
-    "gatsby-plugin-sitemap",
     "gatsby-plugin-postcss",
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        output: `/sitemap.xml.ts`,
+        query: `
+          query allMeta {
+            caisy {
+              allPage {
+                totalCount
+                pageInfo {
+                  hasNextPage
+                  endCursor
+                }
+                edges {
+                  node {
+                    _meta {
+                      publishedAt
+                    }
+                    id
+                    slug
+                  }
+                }
+              }
+              allBlogArticle {
+                totalCount
+                pageInfo {
+                  hasNextPage
+                  endCursor
+                }
+                edges {
+                  node {
+                    _meta {
+                      publishedAt
+                    }
+                    id
+                    slug
+                  }
+                }
+              }
+            }
+          }
+        `,
+        resolvePages: ({
+          caisy: { allBlogArticle, allPage },
+        }: IGenAlleMetaQuery) => {
+          const allBlogArticleResponse: any = allBlogArticle?.edges?.map(
+            (edge) => {
+              const slug = edge?.node?.slug;
+              const meta = edge?.node?._meta;
+              return { meta, slug };
+            }
+          );
+
+          const allPageResponse: any = allPage?.edges?.map((edge) => {
+            const slug = edge?.node?.slug;
+            const meta = edge?.node?._meta;
+            return { meta, slug };
+          });
+
+          const allPages = [...allBlogArticleResponse, ...allPageResponse];
+
+          return allPages;
+        },
+        resolveSiteUrl: async function get(req: GatsbyFunctionRequest) {
+          const { url } = req;
+          const host = url?.split("/")[2];
+          return host;
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

@@ -3032,6 +3032,11 @@ export type IGenAllBlogArticleMetaQueryVariables = Exact<{
 
 export type IGenAllBlogArticleMetaQuery = { caisy: { allBlogArticle?: { totalCount?: number | null, pageInfo?: { hasNextPage?: boolean | null, endCursor?: string | null } | null, edges?: Array<{ node?: { id?: string | null, slug?: string | null, _meta?: { publishedAt?: any | null } | null } | null } | null> | null } | null } };
 
+export type IGenAlleMetaQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type IGenAlleMetaQuery = { caisy: { allPage?: { totalCount?: number | null, pageInfo?: { hasNextPage?: boolean | null, endCursor?: string | null } | null, edges?: Array<{ node?: { id?: string | null, slug?: string | null, _meta?: { publishedAt?: any | null } | null } | null } | null> | null } | null, allBlogArticle?: { totalCount?: number | null, pageInfo?: { hasNextPage?: boolean | null, endCursor?: string | null } | null, edges?: Array<{ node?: { id?: string | null, slug?: string | null, _meta?: { publishedAt?: any | null } | null } | null } | null> | null } | null } };
+
 export type IGenAllPageBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;

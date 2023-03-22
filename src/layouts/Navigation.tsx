@@ -1,16 +1,13 @@
 import { Link } from "gatsby";
 import React from "react";
 import { IGenCaisy_Navigation } from "../../sdk";
+import { useLocation } from "@reach/router";
 
-interface INavigation extends IGenCaisy_Navigation {
-  slug?: string;
-}
-
-export const Navigation: React.FC<INavigation> = ({
-  slug,
+export const Navigation: React.FC<IGenCaisy_Navigation> = ({
   entries,
   homePage,
 }) => {
+  const { pathname } = useLocation();
   return (
     <header className="flex flex-wrap m-10 z-50 bg-white text-sm">
       <nav className="mx-auto" aria-label="Global">
@@ -21,9 +18,8 @@ export const Navigation: React.FC<INavigation> = ({
                 return null;
               }
               const active =
-                entry.connection?.slug === slug ||
-                (slug === undefined &&
-                  entry.connection?.slug === homePage?.slug);
+                `/${entry.connection?.slug}` === pathname ||
+                (pathname === "/" && entry.connection?.slug === homePage?.slug);
               if (active) {
                 return (
                   <Link

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 export const Toast = () => {
   return (
     <div
@@ -10,12 +9,12 @@ export const Toast = () => {
         <p className="text-center w-100">
           Great Job! You have successfully run the caisy template. Click
           on&nbsp;
-          <Link
-            to="/api/onboarding"
+          <a
+            href="/api/onboarding"
             className="font-semibold underline text-green-400"
           >
             this link
-          </Link>
+          </a>
           &nbsp;to complete the onboarding step. To get rid of this toast, just
           delete it in the code.
         </p>

@@ -8,10 +8,6 @@ import { FullwidthBlogTeaser } from "../components/FullwidthBlogTeaser";
 import { Headline } from "../components/Headline";
 import { NewsletterSignup } from "../components/NewsletterSignup";
 
-// interface IComponentSelector extends IGenCaisy_Page_Components {
-//   component: IGenCaisy_Page_Components;
-// }
-
 type IComponentSelector = IGenCaisy_Page_Components & {
   __typename?: string;
 };

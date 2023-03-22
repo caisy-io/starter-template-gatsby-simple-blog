@@ -23,7 +23,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   pageResult?.data?.caisy?.allPage?.edges?.forEach((edge) => {
     actions.createPage({
-      path: `${edge?.node?.slug}` || null,
+      path: `/${edge?.node?.slug}` || null,
       component: path.resolve(`./src/pages/index.tsx`),
       context: { slug: edge?.node?.slug || null },
     });

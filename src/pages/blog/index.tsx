@@ -29,7 +29,7 @@ const IndexPage = ({ data }: PageProps<IGenAllBlogArticleBySlugQuery>) => {
 };
 
 export const query = graphql`
-  query allBlogArticleBySlug($slug: String!) {
+  query allBlogArticleBySlug($slug: String) {
     caisy {
       allBlogArticle(where: { slug: { eq: $slug } }) {
         edges {
