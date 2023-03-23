@@ -1,5 +1,4 @@
-import { GatsbyConfig, GatsbyFunctionRequest } from "gatsby";
-import { IGenAlleMetaQuery } from "./sdk";
+import { GatsbyConfig } from "gatsby";
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -8,77 +7,51 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   siteMetadata: {
     title: `starter-template-gatsby-simple-blog`,
+    siteUrl: "https://www.example.com",
   },
   trailingSlash: "never",
   plugins: [
     "gatsby-plugin-postcss",
     {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://www.example.com",
+        sitemap: "https://www.example.com/sitemap-0.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
+    {
       resolve: "gatsby-plugin-sitemap",
       options: {
-        output: `/sitemap.xml.ts`,
         query: `
-          query allMeta {
-            caisy {
-              allPage {
-                totalCount
-                pageInfo {
-                  hasNextPage
-                  endCursor
-                }
-                edges {
-                  node {
-                    _meta {
-                      publishedAt
-                    }
-                    id
-                    slug
-                  }
-                }
-              }
-              allBlogArticle {
-                totalCount
-                pageInfo {
-                  hasNextPage
-                  endCursor
-                }
-                edges {
-                  node {
-                    _meta {
-                      publishedAt
-                    }
-                    id
-                    slug
-                  }
-                }
-              }
+        {
+          site {
+            siteMetadata {
+              siteUrl
             }
           }
-        `,
-        resolvePages: ({
-          caisy: { allBlogArticle, allPage },
-        }: IGenAlleMetaQuery) => {
-          const allBlogArticleResponse: any = allBlogArticle?.edges?.map(
-            (edge) => {
-              const slug = edge?.node?.slug;
-              const meta = edge?.node?._meta;
-              return { meta, slug };
+          allSitePage {
+            nodes {
+              path
             }
-          );
-
-          const allPageResponse: any = allPage?.edges?.map((edge) => {
-            const slug = edge?.node?.slug;
-            const meta = edge?.node?._meta;
-            return { meta, slug };
-          });
-
-          const allPages = [...allBlogArticleResponse, ...allPageResponse];
-
-          return allPages;
-        },
-        resolveSiteUrl: async function get(req: GatsbyFunctionRequest) {
-          const { url } = req;
-          const host = url?.split("/")[2];
-          return host;
+          }
+        }
+        `,
+        // @ts-ignore
+        serialize: ({ path }) => {
+          if (path?.startsWith("/blog/")) {
+            return {
+              changefreq: "never",
+              url: path,
+              priority: 0.7,
+            };
+          } else {
+            return {
+              changefreq: "weekly",
+              url: path,
+              priority: 1,
+            };
+          }
         },
       },
     },

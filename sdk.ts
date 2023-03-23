@@ -240,6 +240,8 @@ export type IGenDirectoryCtimeArgs = {
 export type IGenSite = IGenNode & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<IGenSiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   graphqlTypegen?: Maybe<IGenSiteGraphqlTypegen>;
   trailingSlash?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
@@ -268,6 +270,7 @@ export type IGenSiteGraphqlTypegen = {
 export type IGenSiteSiteMetadata = {
   title?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
+  siteUrl?: Maybe<Scalars['String']>;
 };
 
 export type IGenSiteFunction = IGenNode & {
@@ -1529,6 +1532,8 @@ export type IGenQueryAllDirectoryArgs = {
 export type IGenQuerySiteArgs = {
   buildTime?: InputMaybe<IGenDateQueryOperatorInput>;
   siteMetadata?: InputMaybe<IGenSiteSiteMetadataFilterInput>;
+  port?: InputMaybe<IGenIntQueryOperatorInput>;
+  host?: InputMaybe<IGenStringQueryOperatorInput>;
   graphqlTypegen?: InputMaybe<IGenSiteGraphqlTypegenFilterInput>;
   trailingSlash?: InputMaybe<IGenStringQueryOperatorInput>;
   polyfill?: InputMaybe<IGenBooleanQueryOperatorInput>;
@@ -2184,6 +2189,7 @@ export type IGenDirectorySortInput = {
 export type IGenSiteSiteMetadataFilterInput = {
   title?: InputMaybe<IGenStringQueryOperatorInput>;
   description?: InputMaybe<IGenStringQueryOperatorInput>;
+  siteUrl?: InputMaybe<IGenStringQueryOperatorInput>;
 };
 
 export type IGenSiteGraphqlTypegenFilterInput = {
@@ -2240,6 +2246,8 @@ export type IGenSiteEdge = {
 export type IGenSiteFieldSelector = {
   buildTime?: InputMaybe<IGenFieldSelectorEnum>;
   siteMetadata?: InputMaybe<IGenSiteSiteMetadataFieldSelector>;
+  port?: InputMaybe<IGenFieldSelectorEnum>;
+  host?: InputMaybe<IGenFieldSelectorEnum>;
   graphqlTypegen?: InputMaybe<IGenSiteGraphqlTypegenFieldSelector>;
   trailingSlash?: InputMaybe<IGenFieldSelectorEnum>;
   polyfill?: InputMaybe<IGenFieldSelectorEnum>;
@@ -2254,6 +2262,7 @@ export type IGenSiteFieldSelector = {
 export type IGenSiteSiteMetadataFieldSelector = {
   title?: InputMaybe<IGenFieldSelectorEnum>;
   description?: InputMaybe<IGenFieldSelectorEnum>;
+  siteUrl?: InputMaybe<IGenFieldSelectorEnum>;
 };
 
 export type IGenSiteGraphqlTypegenFieldSelector = {
@@ -2306,6 +2315,8 @@ export type IGenSiteGroupConnectionGroupArgs = {
 export type IGenSiteFilterInput = {
   buildTime?: InputMaybe<IGenDateQueryOperatorInput>;
   siteMetadata?: InputMaybe<IGenSiteSiteMetadataFilterInput>;
+  port?: InputMaybe<IGenIntQueryOperatorInput>;
+  host?: InputMaybe<IGenStringQueryOperatorInput>;
   graphqlTypegen?: InputMaybe<IGenSiteGraphqlTypegenFilterInput>;
   trailingSlash?: InputMaybe<IGenStringQueryOperatorInput>;
   polyfill?: InputMaybe<IGenBooleanQueryOperatorInput>;
@@ -2320,6 +2331,8 @@ export type IGenSiteFilterInput = {
 export type IGenSiteSortInput = {
   buildTime?: InputMaybe<IGenSortOrderEnum>;
   siteMetadata?: InputMaybe<IGenSiteSiteMetadataSortInput>;
+  port?: InputMaybe<IGenSortOrderEnum>;
+  host?: InputMaybe<IGenSortOrderEnum>;
   graphqlTypegen?: InputMaybe<IGenSiteGraphqlTypegenSortInput>;
   trailingSlash?: InputMaybe<IGenSortOrderEnum>;
   polyfill?: InputMaybe<IGenSortOrderEnum>;
@@ -2334,6 +2347,7 @@ export type IGenSiteSortInput = {
 export type IGenSiteSiteMetadataSortInput = {
   title?: InputMaybe<IGenSortOrderEnum>;
   description?: InputMaybe<IGenSortOrderEnum>;
+  siteUrl?: InputMaybe<IGenSortOrderEnum>;
 };
 
 export type IGenSiteGraphqlTypegenSortInput = {
