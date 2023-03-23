@@ -14,7 +14,7 @@ Deploy this template to Vercel
 
 ## Requirements
 In order to have the right blueprints configured, make sure to follow the onboard on [caisy.io](https://caisy.io/) and select the starter template *"Gatsby Simple Blog"*
-To run this project a `.env.production` files like this (with your own projects values) is required: 
+To run this project a `.env.production` file like this (with your own projects values) is required: 
 ```
 CAISY_PROJECT_ID=a894c383-edfc-4499-a639-a40509986ed4
 CAISY_API_KEY=xxx
