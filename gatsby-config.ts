@@ -3,11 +3,13 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+const domain = process.env.DOMAIN || "www.example.com";
+
 const config: GatsbyConfig = {
   graphqlTypegen: true,
   siteMetadata: {
     title: `starter-template-gatsby-simple-blog`,
-    siteUrl: "https://www.example.com",
+    siteUrl: `https://${domain}`,
   },
   trailingSlash: "never",
   plugins: [
@@ -15,8 +17,8 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
-        host: "https://www.example.com",
-        sitemap: "https://www.example.com/sitemap-0.xml",
+        host: `https://${domain}`,
+        sitemap: `https://${domain}/sitemap.xml`,
         policy: [{ userAgent: "*", allow: "/" }],
       },
     },
@@ -41,7 +43,7 @@ const config: GatsbyConfig = {
         serialize: ({ path }) => {
           if (path?.startsWith("/blog/")) {
             return {
-              changefreq: "never",
+              changefreq: "weekly",
               url: path,
               priority: 0.7,
             };
