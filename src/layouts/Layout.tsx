@@ -13,7 +13,7 @@ interface ILayout {
 export const Layout: React.FC<ILayout> = ({ footer, navigation, children }) => {
   return (
     <>
-      {process.env.PUBLIC_SHOW_ONBOARDING_TOAST != "false" && <Toast />}
+      {process.env.GATSBY_SHOW_ONBOARDING_TOAST != "false" && <Toast />}
       {navigation && <Navigation {...navigation} />}
       <main>{children}</main>
       {footer && <Footer {...footer} />}
