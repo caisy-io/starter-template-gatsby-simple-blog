@@ -50,14 +50,14 @@ During development we generate code using
 
 All commands are run from the root of the project, from a terminal:
 
-| Command         | Action                                                     |
-| :-------------- | :--------------------------------------------------------- | --- |
-| `yarn install`  | Installs dependencies                                      |
-| `yarn develop`  | Starts local dev server at `localhost:8000`                |     |
-| `yarn build`    | Build your production site to `./public/`                  |
-| `yarn serve`    | Run your production site on `localhost:8000`               |
-| `gatsby ...`    | Run CLI commands like `gatsby clean`,&nbsp; `gatsby check` |
-| `gatsby --help` | Get help using the Gatsby CLI                              |
+| Command                | Action                                                   |
+| :--------------------- | :--------------------------------------------------------|
+| `yarn install`          | Installs dependencies                                   |
+| `yarn develop`          | Starts local dev server at `localhost:8000`              |                |
+| `yarn build`        | Build your production site to `./public/`                   |
+| `yarn serve`        | Run your production site on `localhost:8000`|
+| `gatsby ...`    | Run CLI commands like `gatsby clean`,&nbsp;   `gatsby check`|
+| `gatsby --help` | Get help using the Gatsby CLI                             |
 
 ## 👀 Want to learn more?
 
