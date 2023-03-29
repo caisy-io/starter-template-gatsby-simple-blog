@@ -68,12 +68,12 @@ const config: GatsbyConfig = {
       options: {
         typeName: "CAISY",
         fieldName: "caisy",
-        url: `https://cloud.caisy.io/api/v3/e/${process.env.CAISY_PROJECT_ID}/graphql`,
+        url: `https://cloud.staging.caisy.io/api/v3/e/${process.env.CAISY_PROJECT_ID}/graphql`,
         headers: {
           "x-caisy-apikey": `${process.env.CAISY_API_KEY}`,
         },
         // refetch interval in seconds
-        refetchInterval: 30,
+        refetchInterval: 3,
       },
     },
     {
