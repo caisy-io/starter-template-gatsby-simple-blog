@@ -24,9 +24,8 @@ exports.createPages = async ({ graphql, actions }) => {
   pageResult?.data?.caisy?.allPage?.edges?.forEach((edge) => {
     actions.createPage({
       path: `/${edge?.node?.slug}` || null,
-      component: path.resolve(`./src/pages/index.tsx`),
+      component: path.resolve(`./src/pages/slug.tsx`),
       context: { slug: edge?.node?.slug || null },
-      defer: true,
     });
   });
 
@@ -53,9 +52,8 @@ exports.createPages = async ({ graphql, actions }) => {
   blogArticleResult?.data?.caisy?.allBlogArticle?.edges?.forEach((edge) => {
     actions.createPage({
       path: `/blog/${edge?.node?.slug}` || null,
-      component: path.resolve(`./src/pages/blog/index.tsx`),
+      component: path.resolve(`./src/pages/blog/slug.tsx`),
       context: { slug: edge?.node?.slug || null },
-      defer: true,
     });
   });
 };
