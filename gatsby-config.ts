@@ -72,6 +72,8 @@ const config: GatsbyConfig = {
         headers: {
           "x-caisy-apikey": `${process.env.CAISY_API_KEY}`,
         },
+        // refetch interval in seconds
+        refetchInterval: 30,
       },
     },
     {
