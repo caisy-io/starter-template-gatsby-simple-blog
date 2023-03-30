@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { graphql, HeadFC, navigate, PageProps } from "gatsby";
 import { useNavigation } from "../services/graphql/queries/useNavigation";
 import { useFooter } from "../services/graphql/queries/useFooter";
