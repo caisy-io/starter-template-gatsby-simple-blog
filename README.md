@@ -1,49 +1,65 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby Minimal TypeScript Starter
-</h1>
+# Starter template Gatsby simple blog with caisy
 
-## 🚀 Quick start
+## Gatsby x Caisy
 
-1.  **Create a Gatsby site.**
+Deploy this template to Vercel
+<br>
+<br>
+[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcaisy-io%2Fstarter-template-gatsby-simple-blog&env=CAISY_PROJECT_ID,CAISY_API_KEY&project-name=caisy-gatsby-simple-blog&repository-name=caisy-gatsby-simple-blog)
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+### Features
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby -- -ts
-    ```
+- ✅ 100/100 Lighthouse performance
+- ✅ SEO-friendly with canonical URLs and OpenGraph data
+- ✅ Dynamic content updates from caisy without redeployment
+- ✅ Sitemap support
 
-2.  **Start developing.**
+## Requirements
 
-    Navigate into your new site’s directory and start it up.
+In order to have the right blueprints configured, make sure to follow the onboard on [caisy.io](https://caisy.io/) and select the starter template _"Gatsby Simple Blog"_
+To run this project a `.env.production` file like this (with your own projects values) is required:
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+```
+CAISY_PROJECT_ID=a894c383-edfc-4499-a639-a40509986ed4
+CAISY_API_KEY=xxx
+```
 
-3.  **Open the code and start customizing!**
+### To run this project locally
 
-    Your site is now running at http://localhost:8000!
+- [ ] `git clone https://github.com/caisy-io/starter-template-gatsby-simple-blog.git`
+- [ ] create `.env.development` file with your project id and API key
+- [ ] `yarn install`
+- [ ] `yarn develop`
 
-    Edit `src/pages/index.tsx` to see your site update in real-time!
+In order to have the right blueprints configured, make sure to follow the onboard and select the starter template "Gatsby Simple Blog"
 
-4.  **Learn more**
+### We are using
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+- Gatsby as server and server side rendering framework
+- tailwindcss for styling
+- @caisy/rich-text-react-renderer to render the caisy richtexts in Gatsby
+- `gatsby-source-graphql` plugin to fetch data from caisy
 
-## 🚀 Quick start (Netlify)
+#### `gatsby-plugin-graphql-codegen`
 
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
+During development we generate code using
 
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+- `gatsby-plugin-graphql-codegen` & built-in by Gatsby `graphqlTypegen`
+
+### 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                | Action                                                   |
+| :--------------------- | :--------------------------------------------------------|
+| `yarn install`          | Installs dependencies                                   |
+| `yarn develop`          | Starts local dev server at `localhost:8000`              |                |
+| `yarn build`        | Build your production site to `./public/`                   |
+| `yarn serve`        | Run your production site on `localhost:8000`|
+| `gatsby ...`    | Run CLI commands like `gatsby clean`,&nbsp;   `gatsby check`|
+| `gatsby --help` | Get help using the Gatsby CLI                             |
+
+## 👀 Want to learn more?
+
+Feel free to check [the Caisy documentation](https://caisy.io/developer/docs)
+Feel free to check [the Gatsby documentation](https://www.gatsbyjs.com/docs/)
