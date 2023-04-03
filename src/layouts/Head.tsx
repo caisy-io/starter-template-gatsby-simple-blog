@@ -1,7 +1,7 @@
 import React from "react";
-import { IGenCaisy_SeoInformation } from "../../sdk";
+import { IGenSeoInformation } from "../services/graphql/__generated/sdk";
 
-export const HeadComponent: React.FC<IGenCaisy_SeoInformation> = ({
+export const HeadComponent: React.FC<IGenSeoInformation> = ({
   description,
   title,
   ogImage,

@@ -1,12 +1,15 @@
 import React from "react";
-import { IGenCaisy_Footer, IGenCaisy_Navigation } from "../../sdk";
 import { Toast } from "../components/Toast";
 import { Footer } from "./Footer";
 import { Navigation } from "./Navigation";
+import {
+  IGenFooter,
+  IGenNavigation,
+} from "../services/graphql/__generated/sdk";
 
 interface ILayout {
-  navigation?: IGenCaisy_Navigation | null;
-  footer?: IGenCaisy_Footer | null;
+  navigation?: IGenNavigation | null;
+  footer?: IGenFooter | null;
   children?: React.ReactNode;
 }
 

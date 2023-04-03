@@ -1,11 +1,22 @@
 import React from "react";
-import { IGenCaisy_Page } from "../../sdk";
 import { ComponentSelector } from "./ComponentSelector";
+import {
+  IGenFooter,
+  IGenNavigation,
+  IGenPage,
+} from "../services/graphql/__generated/sdk";
+import { Layout } from "./Layout";
 
-export const Page: React.FC<IGenCaisy_Page> = ({ components }) => {
+interface IPage {
+  Navigation?: IGenNavigation;
+  Footer?: IGenFooter;
+  Page?: IGenPage | null;
+}
+
+export const Page: React.FC<IPage> = ({ Footer, Navigation, Page }) => {
   return (
-    <>
-      {components?.map(
+    <Layout footer={Footer} navigation={Navigation}>
+      {Page?.components?.map(
         (component) =>
           component && (
             <React.Fragment key={component.id}>
@@ -13,6 +24,6 @@ export const Page: React.FC<IGenCaisy_Page> = ({ components }) => {
             </React.Fragment>
           )
       )}
-    </>
+    </Layout>
   );
 };

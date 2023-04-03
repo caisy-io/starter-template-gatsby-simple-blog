@@ -1,16 +1,14 @@
 import type { GatsbyConfig } from "gatsby";
 
+const siteUrl = process.env.DOMAIN || "https://www.yourdomain.tld";
+
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `starter-template-gatsby-simple-blog`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl,
   },
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
-  graphqlTypegen: true,
+  trailingSlash: "never",
   plugins: [
-    "gatsby-plugin-sitemap",
     "gatsby-plugin-postcss",
     {
       resolve: "gatsby-plugin-manifest",

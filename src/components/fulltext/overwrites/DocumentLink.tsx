@@ -1,6 +1,6 @@
 import React from "react";
-import { IGenAssetFragment } from "../../../../sdk";
 import { Asset } from "../../Asset";
+import { IGenAsset } from "../../../services/graphql/__generated/sdk";
 
 interface IDocumentLink {
   children?: React.ReactNode;
@@ -16,8 +16,8 @@ export const DocumentLink: React.FC<IDocumentLink> = ({
   return (
     <>
       {connections?.map(
-        (component: IGenAssetFragment) =>
-          component?.__typename == "CAISY_Asset" &&
+        (component: IGenAsset) =>
+          component?.__typename == "Asset" &&
           node?.attrs?.documentId == component.id && (
             <Asset key={component.id} {...component} />
           )

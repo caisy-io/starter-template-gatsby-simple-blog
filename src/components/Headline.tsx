@@ -1,11 +1,8 @@
 import React from "react";
-import { IGenCaisy_Headline } from "../../sdk";
 import { CenterContainer } from "./CenterContainer";
+import { IGenHeadline } from "../services/graphql/__generated/sdk";
 
-export const Headline: React.FC<IGenCaisy_Headline> = ({
-  headline,
-  subheadline,
-}) => {
+export const Headline: React.FC<IGenHeadline> = ({ headline, subheadline }) => {
   return (
     <CenterContainer>
       <div className="mb-8 flex flex-col justify-start items-center gap-2.5">

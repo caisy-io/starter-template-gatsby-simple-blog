@@ -1,12 +1,9 @@
 import { Link } from "gatsby";
 import React from "react";
-import { IGenCaisy_Navigation } from "../../sdk";
 import { useLocation } from "@reach/router";
+import { IGenNavigation } from "../services/graphql/__generated/sdk";
 
-export const Navigation: React.FC<IGenCaisy_Navigation> = ({
-  entries,
-  homePage,
-}) => {
+export const Navigation: React.FC<IGenNavigation> = ({ entries, homePage }) => {
   const { pathname } = useLocation();
   return (
     <header className="flex flex-wrap m-10 z-50 bg-white text-sm">

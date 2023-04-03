@@ -1,8 +1,8 @@
 import React from "react";
-import { IGenCaisy_ContactForm } from "../../sdk";
 import { CenterContainer } from "./CenterContainer";
+import { IGenContactForm } from "../services/graphql/__generated/sdk";
 
-export const ContactForm: React.FC<IGenCaisy_ContactForm> = ({ headline }) => {
+export const ContactForm: React.FC<IGenContactForm> = ({ headline }) => {
   return (
     <CenterContainer>
       <form action="#">
