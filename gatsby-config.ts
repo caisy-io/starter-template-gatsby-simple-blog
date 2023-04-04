@@ -1,6 +1,9 @@
 import type { GatsbyConfig } from "gatsby";
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
-const siteUrl = process.env.DOMAIN || "https://www.yourdomain.tld";
+const siteUrl = `https://${process.env.DOMAIN}` || "https://www.yourdomain.tld";
 
 const config: GatsbyConfig = {
   siteMetadata: {

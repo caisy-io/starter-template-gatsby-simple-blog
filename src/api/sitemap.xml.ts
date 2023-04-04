@@ -7,7 +7,7 @@ export default async function sitemap(
   req: GatsbyFunctionRequest,
   res: GatsbyFunctionResponse
 ) {
-  const baseUrl = process.env.DOMAIN;
+  const baseUrl = `https://${process.env.DOMAIN}`;
 
   const navigationRequest = caisySDK.Navigation();
 
