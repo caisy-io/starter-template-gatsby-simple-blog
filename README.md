@@ -22,6 +22,7 @@ To run this project a `.env.production` file like this (with your own projects v
 ```
 CAISY_PROJECT_ID=a894c383-edfc-4499-a639-a40509986ed4
 CAISY_API_KEY=xxx
+DOMAIN=www.example.com
 ```
 
 ### To run this project locally
@@ -38,13 +39,9 @@ In order to have the right blueprints configured, make sure to follow the onboar
 - Gatsby as server and server side rendering framework
 - tailwindcss for styling
 - @caisy/rich-text-react-renderer to render the caisy richtexts in Gatsby
-- `gatsby-source-graphql` plugin to fetch data from caisy
+- graphql and graphql-request to fetch data from caisy
+- During development we generate code using `@graphql-codegen/cli and plugins` you will need to run `yarn gen` to generate the types
 
-#### `gatsby-plugin-graphql-codegen`
-
-During development we generate code using
-
-- `gatsby-plugin-graphql-codegen` & built-in by Gatsby `graphqlTypegen`
 
 ### 🧞 Commands
 
@@ -53,9 +50,10 @@ All commands are run from the root of the project, from a terminal:
 | Command                | Action                                                   |
 | :--------------------- | :--------------------------------------------------------|
 | `yarn install`          | Installs dependencies                                   |
+| `yarn gen`          |  Downloads the generated types from Caisy API                                   |
 | `yarn develop`          | Starts local dev server at `localhost:8000`              |                |
 | `yarn build`        | Build your production site to `./public/`                   |
-| `yarn serve`        | Run your production site on `localhost:8000`|
+| `yarn serve`        | Run your production site on `localhost:9000`|
 | `gatsby ...`    | Run CLI commands like `gatsby clean`,&nbsp;   `gatsby check`|
 | `gatsby --help` | Get help using the Gatsby CLI                             |
 

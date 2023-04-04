@@ -69,5 +69,8 @@ export default async function sitemap(
     `</urlset>`,
   ].join("\n");
 
+  res.status(200);
+  res.setHeader("content-type", "text/xml");
+  res.setHeader("cache-control", `max-age=${60 * 60 * 1}`);
   res.send(sitemap);
 }

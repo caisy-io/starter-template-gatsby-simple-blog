@@ -16,6 +16,14 @@ const config: GatsbyConfig = {
         icon: "src/images/icon.png",
       },
     },
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: siteUrl,
+        sitemap: `${siteUrl}/api/sitemap.xml`,
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
   ],
 };
 
