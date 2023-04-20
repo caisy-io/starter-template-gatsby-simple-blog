@@ -18,13 +18,13 @@
     "gen:watch": "graphql-codegen --watch --config codegen.ts"
   },
   "dependencies": {
-    "@caisy/rich-text-react-renderer": "^0.4.1",
+    "@caisy/rich-text-react-renderer": "^0.7.3",
     "@fontsource/inter": "^4.5.15",
     "gatsby": "^5.8.1",
     "gatsby-plugin-manifest": "^5.8.0",
     "gatsby-plugin-robots-txt": "^1.8.0",
     "graphql": "^16.6.0",
-    "graphql-request": "^5.2.0",
+    "graphql-request": "^5.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
